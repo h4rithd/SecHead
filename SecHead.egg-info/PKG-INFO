@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: SecHead
-Version: 1.1.0
+Version: 1.2.0
 Summary: A Python-based security auditing tool to analyze website security headers.
 Home-page: https://github.com/h4rithd/SecHead
 Author: Harith Dilshan

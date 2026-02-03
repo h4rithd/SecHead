@@ -1,2 +1,2 @@
 [console_scripts]
-SecHead = SecHead.cli:main
+sechead = sechead.cli:main
