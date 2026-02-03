@@ -1,0 +1,108 @@
+Metadata-Version: 2.4
+Name: SecHead
+Version: 1.1.0
+Summary: A Python-based security auditing tool to analyze website security headers.
+Home-page: https://github.com/h4rithd/SecHead
+Author: Harith Dilshan
+Author-email: contact@h4rithd.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Security
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# 🛡️ SecHead
+
+[![PyPI version](https://badge.fury.io/py/SecHead.svg)](https://badge.fury.io/py/SecHead)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.6+](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/)
+
+**SecHead** is a lightweight, powerful cybersecurity tool designed to audit website security headers. It helps penetration testers, developers, and security researchers identify missing or misconfigured HTTP headers that leave applications vulnerable to attacks like XSS, Clickjacking, and MIME sniffing.
+
+Unlike simple scanners, SecHead provides **context-aware analysis**, explaining *why* a configuration is dangerous and offering best-practice remediation.
+
+---
+
+## ✨ Key Features
+
+* **🛡️ Deep Header Analysis**: Audits critical headers including `CSP`, `HSTS`, `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, and `Permissions-Policy`.
+* **🖱️ Clickjacking PoC**: Automatically detects if a site is vulnerable to Clickjacking and generates a **live Proof-of-Concept iframe** in the HTML report.
+* **📊 Smart Reporting**: Generates a beautiful, dark-mode compatible **HTML Report** containing raw traffic, compliance scores, and remediation guides.
+* **🧬 Technology Fingerprinting**: Passive detection of server technologies (e.g., IIS, Nginx, PHP, ASP.NET) based on response signatures.
+* **⚡ Zero-Config**: Works out of the box with a simple CLI command.
+
+---
+
+## 🚀 Installation
+
+You can install SecHead directly from PyPI:
+
+```bash
+pip install SecHead
+```
+
+Alternatively, you can clone the repository and install it manually:
+```bash
+git clone https://github.com/h4rithd/SecHead.git
+cd SecHead
+pip install .
+```
+## 🛠️ Usage
+1. Quick Scan (Terminal Output)
+Run a scan against a target URL. The results will be displayed directly in your terminal with color-coded alerts.
+```Bash
+SecHead -u https://example.com
+```
+
+2. Generate HTML Report
+Save the detailed analysis to an HTML file. This report is perfect for attaching to penetration testing deliverables.
+```Bash
+SecHead -u https://example.com -o report.html
+```
+
+## 📊 Sample Output
+Terminal View
+```Plaintext
+🔎  Analysis for: https://example.com
+📡  Status Code: 200
+
+🛡️   SECURITY HEADERS ANALYSIS
+------------------------------------------------------------
+❌  Strict-Transport-Security : MISSING
+    ℹ️  Forces the browser to communicate only via HTTPS.
+    💡 Best Practice: max-age=63072000; includeSubDomains; preload
+    ⚠️  Issue: Header is missing entirely.
+
+✅  X-Content-Type-Options    : OK
+    ℹ️  Prevents the browser from 'sniffing' the response type.
+    💡 Best Practice: nosniff
+    ....
+```
+
+HTML Report Preview
+- The generated HTML report includes:
+- Executive Summary: Pass/Fail status for all headers.
+- Vulnerability Proof: A working iframe demonstrating Clickjacking risks (if applicable).
+- Raw Data: Full HTTP request and response logs.
+- Remediation: Copy-pasteable best practices for developers.
+
+## ⚠️ Disclaimer
+This tool is designed for educational and ethical security testing purposes only.
+Do not use this tool on websites or systems you do not own or do not have explicit permission to test.
+The author is not responsible for any misuse or damage caused by this program.
+
+## 📄 License
+This project is licensed under the MIT License.

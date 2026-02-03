@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+SecHead.egg-info/PKG-INFO
+SecHead.egg-info/SOURCES.txt
+SecHead.egg-info/dependency_links.txt
+SecHead.egg-info/entry_points.txt
+SecHead.egg-info/requires.txt
+SecHead.egg-info/top_level.txt
+sechead/__init__.py
+sechead/cli.py
